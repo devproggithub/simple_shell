@@ -1,6 +1,10 @@
 #include "lib_shell.h"
 
-/* _strdup */
+/**
+* _strdup -copier la chaîne de caractères initiale.
+* @str: String
+* Return: copier
+*/
 char *_strdup(const char *str)
 {
 	char *p;
@@ -26,23 +30,34 @@ char *_strdup(const char *str)
 	return (p);
 }
 
-int _strcmp(char *s1, char *s2)
+/**
+* _strcmp - comparer deux chaînes
+* @m: String 1
+* @t: String 2
+* Return: int
+*/
+int _strcmp(char *m, char *t)
 {
 	int cmp;
 
-	cmp = (int)*s1 - (int)*s2;
-	while (*s1)
+	cmp = (int)*m - (int)*t;
+	while (*m)
 	{
-		if (*s1 != *s2)
+		if (*m != *t)
 			break;
 
-		s1++;
-		s2++;
-		cmp = (int) *s1 - (int)*s2;
+		m++;
+		t++;
+		cmp = (int) *m - (int)*t;
 	}
 	return (cmp);
 }
 
+/**
+* _strlen - calculer la longueur
+* @s: String
+* Return: int
+*/
 int _strlen(char *s)
 {
 	int len = 0;
@@ -53,6 +68,12 @@ int _strlen(char *s)
 	return (len);
 }
 
+/**
+ * _strcat - rajouter à une chaîne
+ * @dest: string 1
+ * @src: string 2
+ * Return: String
+*/
 char *_strcat(char *dest, char *src)
 {
 	char *p = dest;
@@ -70,6 +91,12 @@ char *_strcat(char *dest, char *src)
 	return (dest);
 }
 
+/**
+ * _strcpy - copier le contenu d'une chaîne
+ * @dest: string 1
+ * @src: string 2
+ * Return: String
+*/
 char *_strcpy(char *dest, char *src)
 {
 	int i = 0;

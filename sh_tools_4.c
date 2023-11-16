@@ -1,5 +1,10 @@
 #include "lib_shell.h"
 
+/**
+ * is_number_positive - is number positive
+ * @str: string
+ * Return: int
+*/
 int is_number_positive(char *str)
 {
 	int i;
@@ -14,6 +19,11 @@ int is_number_positive(char *str)
 	return (1);
 }
 
+/**
+ * _atoi - transformer une chaîne représentant une valeur entière
+ * @str: String
+ * Return: int
+*/
 int _atoi(char *str)
 {
 	int i, num = 0;

@@ -1,5 +1,11 @@
 #include "lib_shell.h"
 
+/**
+ * reverse_S - reverse String
+ * @str: string
+ * @len: int
+ * Return: void
+*/
 void reverse_S(char *str, int len)
 {
 	char tmp;
@@ -16,6 +22,11 @@ void reverse_S(char *str, int len)
 	}
 }
 
+/**
+ * is_cmd_exist - is command exist
+ * @cmd: strin
+ * Return: int
+*/
 int is_cmd_exist(char *cmd)
 {
 	char *command[] = {"exit", "env", NULL};
@@ -29,20 +40,36 @@ int is_cmd_exist(char *cmd)
 	return (0);
 }
 
-void handle_cmd(char **cmd, char **argv, int *Status, int i)
+/**
+ * handle_cmd - handle command
+ * @cmd: string of string
+ * @argv: argumant system
+ * @status: string
+ * @i: int
+ * Return: void
+*/
+void handle_cmd(char **cmd, char **argv, int *status, int i)
 {
 	if (_strcmp(cmd[0], "exit") == 0)
-		sh_exit(cmd, argv, Status, i);
+		sh_exit(cmd, argv, status, i);
 	else
 	{
 		if (_strcmp(cmd[0], "env") == 0)
-			env_print(cmd, Status);
+			env_print(cmd, status);
 	}
 }
 
-void sh_exit(char **cmd, char **argv, int *Status, int i)
+/**
+ * sh_exit - exit function
+ * @cmd: string of string
+ * @argv: argumant system
+ * @status: string
+ * @i: int
+ * Return: void
+*/
+void sh_exit(char **cmd, char **argv, int *status, int i)
 {
-	int exit_vla = (*Status);
+	int exit_vla = (*status);
 	char *index, msg_err[] = ": exit: Illegal number: ";
 
 	if (cmd[1])
@@ -62,7 +89,7 @@ void sh_exit(char **cmd, char **argv, int *Status, int i)
 			write(STDOUT_FILENO, "\n", 1);
 			free(index);
 			FreeArray2DOfString(cmd);
-			(*Status) = 2;
+			(*status) = 2;
 			return;
 		}
 	}
@@ -70,7 +97,13 @@ void sh_exit(char **cmd, char **argv, int *Status, int i)
 	exit(exit_vla);
 }
 
-void env_print(char **cmd, int *Status)
+/**
+ * env_print - afficher les environ
+ * @cmd: string of string
+ * @status: int
+ * Return: void
+*/
+void env_print(char **cmd, int *status)
 {
 	int i;
 
@@ -80,5 +113,5 @@ void env_print(char **cmd, int *Status)
 		write(STDOUT_FILENO, "\n", 1);
 	}
 	FreeArray2DOfString(cmd);
-	(*Status) = 0;
+	(*status) = 0;
 }

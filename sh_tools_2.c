@@ -1,5 +1,10 @@
 #include "lib_shell.h"
 
+/**
+ * FreeArray2DOfString - Free Array 2D Of String
+ * @ar: String
+ * Return: void
+*/
 void FreeArray2DOfString(char **ar)
 {
 	int i;
@@ -15,6 +20,11 @@ void FreeArray2DOfString(char **ar)
 	free(ar), ar = NULL;
 }
 
+/**
+ * _getenv - get environ récupérer le contenu d'une variable d'environnement
+ * @name: name
+ * Return: string
+ */
 char *_getenv(char *name)
 {
 	unsigned int i;
@@ -39,6 +49,11 @@ char *_getenv(char *name)
 	return (NULL);
 }
 
+/**
+ * _getpath - get path
+ * @cmd: String
+ * Return: String
+*/
 char *_getpath(char *cmd)
 {
 	char *p_env, *f_cmd, *dir;
@@ -83,6 +98,13 @@ char *_getpath(char *cmd)
 	return (NULL);
 }
 
+/**
+ * printerror - print error
+ * @name: String
+ * @cmd: String
+ * @idx: int
+ * Return: void
+*/
 void printerror(char *name, char *cmd, int idx)
 {
 	char *index, mssg[] = ": not found\n";
@@ -99,6 +121,11 @@ void printerror(char *name, char *cmd, int idx)
 	free(index);
 }
 
+/**
+ * _itoa - Converts an integer to string
+ * @n: int
+ * Return: String
+*/
 char *_itoa(int n)
 {
 	char buffer[20];
