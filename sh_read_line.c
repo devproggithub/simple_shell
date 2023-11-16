@@ -1,14 +1,20 @@
 #include "lib_shell.h"
 
-/* read line */
+/**
+* sh_read_line - read line
+* Return: line
+*/
 char *sh_read_line(void)
 {
 	char *L = NULL;
+	int k;
 	size_t s = 0;
 	ssize_t n;
 
-	if(isatty(STDIN_FILENO) == 1)
-	    write(STDOUT_FILENO, "$ ", 2);
+	k = isatty(STDIN_FILENO);
+
+	if (k == 1)
+		write(STDOUT_FILENO, "$ ", 2);
 
 	n = getline(&L, &s, stdin);
 
